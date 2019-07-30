@@ -1554,7 +1554,15 @@
            (:body (client/coerce-response-body {:as :auto}
                                                auto-www-form-urlencoded-resp))
            (:body (client/coerce-response-body {:as :x-www-form-urlencoded}
-                                               www-form-urlencoded-resp))))))
+                                               www-form-urlencoded-resp))))
+
+    (testing "throws AssertionError when optional librares are not loaded"
+      (with-redefs [client/json-enabled? false]
+        (is (thrown? AssertionError (client/coerce-response-body {:as :json} json-resp)))
+        (is (thrown? AssertionError (client/coerce-response-body {:as :auto} json-resp))))
+      (with-redefs [client/transit-enabled? false]
+        (is (thrown? AssertionError (client/coerce-response-body {:as :transit+json} transit-json-resp)))
+        (is (thrown? AssertionError (client/coerce-response-body {:as :transit+msgpack} transit-msgpack-resp)))))))
 
 (deftest ^:integration t-with-middleware
   (run-server)
