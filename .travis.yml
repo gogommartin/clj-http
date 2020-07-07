@@ -2,7 +2,7 @@ language: clojure
 lein: lein
 script:
   - lein all do clean, test
-  - ! lein check 2>&1 | egrep "Reflection warning|Performance warning"
+  - '! lein check 2>&1 | egrep "Reflection warning|Performance warning"'
 branches:
   only:
     - 3.x
