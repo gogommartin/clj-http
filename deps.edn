@@ -1,0 +1,10 @@
+{:paths ["src"]
+ :deps {org.apache.httpcomponents/httpcore {:mvn/version "4.4.12"}
+        org.apache.httpcomponents/httpclient {:mvn/version "4.5.10"}
+        org.apache.httpcomponents/httpclient-cache {:mvn/version "4.5.10"}
+        org.apache.httpcomponents/httpasyncclient {:mvn/version "4.1.4"}
+        org.apache.httpcomponents/httpmime {:mvn/version "4.5.10"}
+        commons-codec {:mvn/version "1.12"}
+        commons-io {:mvn/version "2.6"}
+        slingshot {:mvn/version "0.12.2"}
+        potemkin {:mvn/version "0.4.5"}}}
